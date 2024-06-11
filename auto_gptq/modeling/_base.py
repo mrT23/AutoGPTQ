@@ -300,7 +300,8 @@ os.environ['NUMEXPR_MAX_THREADS'] = max_threads
         if not self.quantize_config.true_sequential:
             inside_layer_modules = [sum(inside_layer_modules, [])]
         quantizers = {}
-        for i in range(len(layers)):
+        #for i in range(len(layers)):
+        for i in range(len(layers)-1, -1, -1):
             logger.info(f"Start quantizing layer {i + 1}/{len(layers)}")
             layer = layers[i]
             force_layer_back_to_cpu = False
